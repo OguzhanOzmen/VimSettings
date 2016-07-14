@@ -1,7 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/spgear/scratch/ozmeno/q32187/clus2/PNC06084702255-diagnostics-2014-07-23-06.18~001/mgmt_server/cluster-2/upgrade'
-let g:netrw_dirhist_2='/home/ozmeno/Work/UI2'
-let g:netrw_dirhist_3='/home/ozmeno/.vim/bundle/tasklist'
-let g:netrw_dirhist_4='/home/ozmeno/.vim/bundle/tasklist/plugin'
-let g:netrw_dirhist_5='/home/ozmeno/.pylint.d'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/ozmeno/Work/NSFW2/snac/stdf'
+let g:netrw_dirhist_2='/home/ozmeno/Work/NSFW/runner/tests/integration'

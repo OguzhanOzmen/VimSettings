@@ -27,6 +27,12 @@ set spelllang=en_us
 set wildmenu
 set wildmode=longest,list,full
 
+" " window split navigation
+" nmap <silent> <A-Up> :wincmd k<CR>
+" nmap <silent> <A-Down> :wincmd j<CR>
+" nmap <silent> <A-Left> :wincmd h<CR>
+" nmap <silent> <A-Right> :wincmd l<CR>
+
 " code coloring...
 colo desert
 filetype on " try to detect filetypes
@@ -57,7 +63,7 @@ map <F10> :!ctags -R .<CR>
 
 " re-create and re-connect to the new cscope db w/o exiting vim:
 "                         \! -iwholename "*mock*" > \
-nmap <C-\>r :!find -L $PWD \( -iname "*.c" -o -iname "*.h" -o -iname "*.cpp" -o -iname "*.cc" -o -iname "*.c++" -o -iname "*.py" -o -iname "*.java" \) > $PWD\/cscope.files; cscope -b -q -k; export CSCOPE_DB=$PWD/cscope.out<CR> :cs reset<CR>
+nmap <C-\>r :!find -L $PWD \( -iname "*.c" -o -iname "*.h" -o -iname "*.cpp" -o -iname "*.cc" -o -iname "*.c++" -o -iname "*.py" -o -iname "*.java" \) > $PWD\/cscope.files; cscope -b -q -k<CR>:cs kill 0<CR>:cs add cscope.out<CR>
 
 " python programming
 set foldmethod=indent
@@ -79,6 +85,16 @@ nmap <leader>a <Esc>:Ack!
 " to grep a text other than 'text-under-cursor'
 command -nargs=1 Defn :cs find g <args>
 command -nargs=1 Grep :cs find e <args>
+
+" zoom in/out a splitted pane(window)
+nmap <C-w>z :tabedit %<CR>
+" function! OpenCurrentAsNewTab()
+" let l:currentPos = getpos()
+"     tabedit %
+"     call setpos(".", l:currentPos)
+" endfunction
+" nmap <C-w>z :call OpenCurrentAsNewTab()<CR>
+nmap <C-w>x :tabclose<CR>
 
 " Find file in the given directory and edit it.
 function! Find(...)
@@ -122,7 +138,7 @@ function! Find(...)
     call delete(tmpfile)
   endif
 endfunction
-command! -nargs=* Find :call Find(<f-args>)
+command! -nargs=* -complete=dir Find :call Find(<f-args>)
 
 " long lines and extra whitespaces
 " highlight OverLength ctermbg=red ctermfg=white guibg=darkred
