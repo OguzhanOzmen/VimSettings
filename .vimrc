@@ -63,7 +63,7 @@ map <F10> :!ctags -R .<CR>
 
 " re-create and re-connect to the new cscope db w/o exiting vim:
 "                         \! -iwholename "*mock*" > \
-nmap <C-\>r :!find -L $PWD \( -iname "*.c" -o -iname "*.h" -o -iname "*.cpp" -o -iname "*.cc" -o -iname "*.c++" -o -iname "*.py" -o -iname "*.java" \) > $PWD\/cscope.files; cscope -b -q -k<CR>:cs kill 0<CR>:cs add cscope.out<CR>
+nmap <C-\>r :!find $PWD \( -iname "*.c" -o -iname "*.h" -o -iname "*.cpp" -o -iname "*.cc" -o -iname "*.c++" -o -iname "*.py" -o -iname "*.java" \) > $PWD\/cscope.files; cscope -b -q -R<CR>:cs kill 0<CR>:cs add cscope.out<CR>
 
 " python programming
 set foldmethod=indent
@@ -82,19 +82,31 @@ nmap <leader>a <Esc>:Ack!
 " git fugitive ???
 " %{fugitive#statusline()}
 
+" show filename and make it always visible
+" set laststatus=2
+" set statusline +=%F    "full filename
+" set statusline+=%c    "cursor column
+" set statusline+=%l/%L "cursor line/total lines
+" set statusline+=\ %P  "percent through file
+
 " to grep a text other than 'text-under-cursor'
 command -nargs=1 Defn :cs find g <args>
 command -nargs=1 Grep :cs find e <args>
 
-" zoom in/out a splitted pane(window)
-nmap <C-w>z :tabedit %<CR>
-" function! OpenCurrentAsNewTab()
-" let l:currentPos = getpos()
-"     tabedit %
-"     call setpos(".", l:currentPos)
-" endfunction
-" nmap <C-w>z :call OpenCurrentAsNewTab()<CR>
+
+"set showtabline=2
+hi TabLineSel ctermfg=White ctermbg=Yellow
+
+" tabbing: zoom in/out a splitted pane(window)
+" nmap <C-w>z :tabedit %<CR>
+function! OpenCurrentAsNewTab()
+let l:currentPos = getpos(".")
+    tabedit %
+    call setpos(".", l:currentPos)
+endfunction
+nmap <C-w>z :call OpenCurrentAsNewTab()<CR>
 nmap <C-w>x :tabclose<CR>
+
 
 " Find file in the given directory and edit it.
 function! Find(...)
@@ -139,6 +151,10 @@ function! Find(...)
   endif
 endfunction
 command! -nargs=* -complete=dir Find :call Find(<f-args>)
+
+
+" long lines
+nmap <silent> <leader>ll /\%>80v.\+
 
 " long lines and extra whitespaces
 " highlight OverLength ctermbg=red ctermfg=white guibg=darkred
