@@ -18,6 +18,7 @@ set expandtab
 set tw=79
 set wrap
 set ruler
+set fileformat=unix
 
 " spell checker
 nmap <silent> <leader>sp :set spell!<CR>
