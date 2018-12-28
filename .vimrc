@@ -101,7 +101,7 @@ nmap <C-w>z :call OpenCurrentAsNewTab()<CR>
 nmap <C-w>x :tabclose<CR>
 
 " long lines
-nmap <silent> <leader>ll /\%>80v.\+
+nmap <silent> <leader>ll /\%>79v.\+<CR>
 
 " long lines and extra whitespaces
 " highlight OverLength ctermbg=red ctermfg=white guibg=darkred
