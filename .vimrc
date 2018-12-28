@@ -53,7 +53,7 @@ set tags=tags
 
 " ctags
 set notagbsearch
-map <F10> :!ctags -R .<CR>
+nmap <silent> <leader>ct :!ctags -R .<CR>
 
 " re-create and re-connect to the new cscope db w/o exiting vim:
 "                         \! -iwholename "*mock*" > \
