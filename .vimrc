@@ -15,7 +15,7 @@ set shiftwidth=4
 set expandtab
 
 " linewidth, formatoptions...
-set tw=80
+set tw=79
 set wrap
 set ruler
 
