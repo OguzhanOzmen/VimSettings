@@ -40,7 +40,7 @@ filetype plugin indent on  " enable loading indent file for filetype
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeShowBookmarks=1
-map <F8> :NERDTreeToggle<CR>
+nmap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " taglist configuration
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
