@@ -109,3 +109,5 @@ nmap <silent> <leader>ll /\%>79v.\+<CR>
 " 
 " au BufRead,BufNewFile *.py syntax match OverLength /\%80v.\+/
 " au BufRead,BufNewFile *.py syntax match ExtraWhiteSpace /\s\+$\|\t/
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
