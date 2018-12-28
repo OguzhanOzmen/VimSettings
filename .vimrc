@@ -51,9 +51,6 @@ let Tlist_File_Fold_Auto_Close = 1
 map <F9> :TlistToggle<CR>
 set tags=tags
 
-" tasklist: TODO and FIXME
-map <leader>td <Plug>TaskList
-
 " ctags
 set notagbsearch
 map <F10> :!ctags -R .<CR>
