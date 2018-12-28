@@ -59,6 +59,10 @@ nmap <silent> <leader>ct :!ctags -R .<CR>
 "                         \! -iwholename "*mock*" > \
 nmap <C-\>r :!find $PWD \( -iname "*.c" -o -iname "*.h" -o -iname "*.cpp" -o -iname "*.cc" -o -iname "*.c++" -o -iname "*.py" -o -iname "*.java" \) > $PWD\/cscope.files; cscope -b -q -R<CR>:cs kill 0<CR>:cs add cscope.out<CR>
 
+" to grep a text other than 'text-under-cursor'
+command -nargs=1 Defn :cs find g <args>
+command -nargs=1 Grep :cs find e <args>
+
 " python programming
 set foldmethod=indent
 set foldlevel=0
@@ -82,11 +86,6 @@ nmap <leader>a <Esc>:Ack!
 " set statusline+=%c    "cursor column
 " set statusline+=%l/%L "cursor line/total lines
 " set statusline+=\ %P  "percent through file
-
-" to grep a text other than 'text-under-cursor'
-command -nargs=1 Defn :cs find g <args>
-command -nargs=1 Grep :cs find e <args>
-
 
 "set showtabline=2
 hi TabLineSel ctermfg=White ctermbg=Yellow
