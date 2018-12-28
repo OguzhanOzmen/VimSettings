@@ -111,3 +111,35 @@ nmap <silent> <leader>ll /\%>79v.\+<CR>
 " au BufRead,BufNewFile *.py syntax match ExtraWhiteSpace /\s\+$\|\t/
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+"
+" YouCompleteMe (YCM) auto-completion
+"
+" 1. get YouCompleteMe https://github.com/Valloric/YouCompleteMe
+" 2. compile YCM:
+"    cd <>/YouCompleteMe
+"   ./install.py --clang-completer
+" 3. add extra_conf thing
+let g:ycm_global_ycm_extra_conf = '/Users/ozie/.vim/ycm_extra_conf.py'
+" 4. Set PYTHONPATH - how to select python version???
+"    - add it to bash_rc or somewhere else
+"    - also need to set PYTHONPATH - can we do it as a ycm_* variable?
+"    - need some python modules like "requests"
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/python
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/python
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/python-future/
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/python-future/src/
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/pythonfutures/
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/requests-futures/
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/requests_deps/
+" export PYTHONPATH=$PYTHONPATH:/Users/ozie/Downloads/YouCompleteMe/third_party/ycmd
+" 5. virtualenv support so that YCM finds the correct site packages
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
