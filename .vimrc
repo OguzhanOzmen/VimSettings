@@ -143,3 +143,29 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+" vim pack
+" Load all packages now
+packloadall
+" Generate help tags from all packages and ignore errors
+silent! helptags ALL
+
+"
+" for file search FZF
+"
+"  * brew install fzf
+"  * to get shell integration: /usr/local/opt/fzf/install
+set rtp+=/usr/local/opt/fzf
+
+" powerline
+"   * pip2.7 install powerline-status
+"   * also has TMUX theme
+set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
+set laststatus=2
+set encoding=utf8
+let g:airline_powerline_fonts = 1
+
+"
+" to use vi editing on bash shell
+"
+" set editing-mode vi OR set -o vi (default emacs)
