@@ -27,11 +27,8 @@ set spelllang=en_us
 set wildmenu
 set wildmode=longest,list,full
 
-" " window split navigation
-" nmap <silent> <A-Up> :wincmd k<CR>
-" nmap <silent> <A-Down> :wincmd j<CR>
-" nmap <silent> <A-Left> :wincmd h<CR>
-" nmap <silent> <A-Right> :wincmd l<CR>
+" window split navigation
+" CTRL-W <arrow-keys> works!
 
 " code coloring...
 colo desert
