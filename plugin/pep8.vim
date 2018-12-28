@@ -11,8 +11,8 @@ function! <SID>Pep8()
   set grepformat&vim
   set grepformat&vim
   let &grepformat = '%f:%l:%m'
-" let &grepprg = 'pep8 --repeat --max-line-length=100'
-  let &grepprg = 'pep8 --repeat'
+" let &grepprg = 'pycodestyle --repeat --max-line-length=100'
+  let &grepprg = 'pycodestyle --repeat'
   if &readonly == 0 | update | endif
   silent! grep! %
   let &grepformat = l:grepformat_save
