@@ -160,7 +160,12 @@ set rtp+=/usr/local/opt/fzf
 
 " powerline
 "   * pip2.7 install powerline-status
-"   * also has TMUX theme
+"   * also has TMUX theme: in tmux.conf source tmux binding (in .tmux-conf)
+"       * source-file '/usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline.conf'
+"   * also has BASH support: /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+"   * windows-putty font issues:
+"       * download DejaVuSansMono at https://github.com/powerline/fonts and
+"         install on Windows and select the font in Putty (http://mschulte.nl/posts/using-powerline-in-PuTTY.html)
 set rtp+=/Library/Python/2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 set encoding=utf8
